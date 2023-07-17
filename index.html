@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- <h2>Random</h2> -->
+<button onclick="myFunction()">Bấm</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+
+    const matrix = [];
+
+    for (let i = 0; i <= 9; i++) {
+        const items = [];
+        for (let j = 0; j <= 9; j++) {
+            const number = `${i}${j}`;
+            items.push(number);
+        }
+        matrix.push(items);
+    }
+    const data = []
+    const calData = JSON.parse(JSON.stringify(matrix));
+    calData.map(m => {
+        const r = Math.floor(Math.random() * 10);
+        m.splice(r, 1)
+        data.push(m)
+    });
+
+    document.getElementById('demo').innerHTML = data.flat().toString()
+}
+</script> 
+
+</body>
+</html>
